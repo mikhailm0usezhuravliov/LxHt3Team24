@@ -3,5 +3,12 @@ export type FormValues = {
 };
 
 export type MessageState = {
-  messagesArr: string[];
+  messagesArr: MessageData[];
+};
+
+export type MessageData = {
+  date: number;
+  author: string;
+  isUser: boolean;
+  text: string;
 };

@@ -1,8 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MessageState } from '../models/form.model';
+import { MessageData, MessageState } from '../models/form.model';
 
 const initialState: MessageState = {
-  messagesArr: ['Доброго дня! Чим можу допомогти?'],
+  messagesArr: [
+    {
+      date: Date.now(),
+      author: 'Bot',
+      isUser: false,
+      text: 'Доброго дня! Чим можу допомогти?',
+    },
+  ],
 };
 
 const messageSlice = createSlice({
@@ -10,7 +17,7 @@ const messageSlice = createSlice({
   initialState,
   reducers: {
     addMessage(state, action) {
-      const newMessagesArr: string[] = [...state.messagesArr];
+      const newMessagesArr: MessageData[] = [...state.messagesArr];
       newMessagesArr.push(action.payload);
       return { ...state, messagesArr: newMessagesArr };
     },

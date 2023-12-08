@@ -1,8 +1,11 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { FormValues } from '../../models/form.model';
+import { FormValues, MessageData } from '../../models/form.model';
 import ChatHistory from './ChatHistory';
+import { useAppDispatch } from '../../hooks';
+import { addMessage } from '../../store/messageSlice';
 
 const ChatBot = ({ closeBot }: { closeBot: () => void }) => {
+  const dispatch = useAppDispatch();
   const { register, handleSubmit, reset } = useForm<FormValues>({ mode: 'onSubmit' });
 
   const closeChatBot = () => {
@@ -13,6 +16,14 @@ const ChatBot = ({ closeBot }: { closeBot: () => void }) => {
     const { message } = data;
 
     console.log('send request', message);
+    const newMessage: MessageData = {
+      date: Date.now(),
+      author: '',
+      isUser: true,
+      text: message,
+    };
+
+    dispatch(addMessage(newMessage));
     reset();
   };
 
