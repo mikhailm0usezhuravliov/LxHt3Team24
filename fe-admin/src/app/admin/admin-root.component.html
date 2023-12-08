@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <button mat-icon-button color="" (click)="logOut()"><mat-icon>logout</mat-icon></button>
+</mat-toolbar>
+<mat-sidenav-container class="side-nav-container">
+  <mat-sidenav mode="side" opened>
+    <ul>
+      <li class="navigation__item">
+        <a routerLink="admin/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="admin/appeals"><mat-icon>task</mat-icon>Звернення</a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="admin/users"><mat-icon>group</mat-icon>Користувачі</a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="admin/chat"><mat-icon>chat</mat-icon>Чат</a>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>

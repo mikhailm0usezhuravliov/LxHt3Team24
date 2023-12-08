@@ -1,0 +1,55 @@
+<div class="mat-elevation-z8">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{row.Status}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Responsible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsible</th>
+      <td mat-cell *matCellDef="let row">{{row.Responsible}}</td>
+    </ng-container>
+    <ng-container matColumnDef="RegistrationDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Registration date</th>
+      <td mat-cell *matCellDef="let row">{{row.RegistrationDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="CloseDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Close date</th>
+      <td mat-cell *matCellDef="let row">{{row.CloseDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="AppealsType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Appeals Type</th>
+      <td mat-cell *matCellDef="let row">{{row.AppealsType}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button color="" (click)="edit(row.id)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="" (click)="delete(row.id)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+
+  </table>
+
+  <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+  </mat-paginator>
+</div>
