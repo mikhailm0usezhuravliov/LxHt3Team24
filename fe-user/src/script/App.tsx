@@ -1,5 +1,12 @@
-export const App = () => {
-  console.log('AppAppApp');
+import { Chat, Footer, Header } from './components';
 
-  return <div className="app">App</div>;
+export const App = () => {
+  return (
+    <div className="app">
+      <Header />
+      <main>База знань ветерана</main>
+      <Chat />
+      <Footer />
+    </div>
+  );
 };
