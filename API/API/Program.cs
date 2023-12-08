@@ -11,6 +11,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGroup("/").MapUsers();
+app.MapGroup("/users").MapUsers();
+app.MapGroup("/appeals").MapAppeals();
+app.MapGroup("/admins").MapAdmins();
+app.MapGroup("/locations").MapLocations();
 
 app.Run();

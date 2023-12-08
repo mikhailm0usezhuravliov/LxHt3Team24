@@ -36,7 +36,7 @@ public static class UsersEndpoint
 
             user.Appeals = newUser.Appeals;
             user.AppealsIds = newUser.AppealsIds;
-            
+
             user.LocationId = newUser.LocationId;
             user.Location = newUser.Location;
             await dbContext.SaveChangesAsync();

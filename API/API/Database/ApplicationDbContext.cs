@@ -1,18 +1,15 @@
 ﻿using API.Database.Entities;
 using Microsoft.EntityFrameworkCore;
-using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
 namespace API.Database;
 
-public abstract class ApplicationDbContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public DbSet<User> Users { get; set; } = null!;
-    public DbSet<Admin> Admins { get; set; } = null!;
-    public DbSet<Appeal> Appeals { get; set; } = null!;
-    public DbSet<Location> Locations { get; set; } = null!;
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        optionsBuilder.UseNpgsql("");
     }
+    public DbSet<User> Users { get; init; } = null!;
+    public DbSet<Admin> Admins { get; init; } = null!;
+    public DbSet<Appeal> Appeals { get; init; } = null!;
+    public DbSet<Location> Locations { get; init; } = null!;
 }
