@@ -2,4 +2,6 @@ create table Users(Id int NOT NULL, Age int, Location varchar(39), UserType varc
 
 create table AppealHouse(AppealID int, UserID int, PRIMARY KEY(AppealID, UserID));
 
+create table Appeals(Id int, RegistrationTime datetime, Conversation ntext, AdminID int, AppealType char(19), Status tinyint, PRIMARY KEY(Id));
+
 
