@@ -4,4 +4,6 @@ create table AppealHouse(AppealID int, UserID int, PRIMARY KEY(AppealID, UserID)
 
 create table Appeals(Id int, RegistrationTime datetime, Conversation ntext, AdminID int, AppealType char(19), Status tinyint, PRIMARY KEY(Id));
 
+create table Locations (Id int, Locaton varchar(80), PRIMARY KEY(Id));
 
+create table Admins(Id int, AdminLogin varchar(19), PasswordHash varchar(29) PRIMARY KEY(Id));
