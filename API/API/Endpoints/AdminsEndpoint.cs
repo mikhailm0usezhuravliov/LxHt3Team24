@@ -8,7 +8,7 @@ public static class AdminsEndpoint
 {
     public static void MapAdmins(this RouteGroupBuilder app)
     {
-        app.MapPost("/", async (ApplicationDbContext dbContext, Admin admin) =>
+        app.MapPost("/", async (ApplicationDbContext dbContext, AdminEntity admin) =>
         {
             dbContext.Admins.Add(admin);
             await dbContext.SaveChangesAsync();
@@ -24,12 +24,12 @@ public static class AdminsEndpoint
             var admin = await dbContext.Admins.FindAsync(adminId);
             return admin == null ? Results.NotFound() : Results.Ok(admin);
         });
-        app.MapPut("/{adminId}", async (ApplicationDbContext dbContext, int adminId, Admin newAdmin) =>
+        app.MapPut("/{adminId}", async (ApplicationDbContext dbContext, int adminId, AdminEntity newAdmin) =>
         {
             var admin = await dbContext.Admins.FindAsync(adminId);
             if (admin == null) return Results.NotFound();
-            admin.Login = newAdmin.Login;
-            admin.Password = newAdmin.Password;
+            admin.AdminLogin = newAdmin.AdminLogin;
+            admin.PasswordHash = newAdmin.PasswordHash;
             await dbContext.SaveChangesAsync();
             return Results.Ok();
         });

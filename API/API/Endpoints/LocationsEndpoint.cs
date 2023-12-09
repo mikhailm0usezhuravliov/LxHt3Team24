@@ -8,7 +8,7 @@ public static class LocationsEndpoint
 {
     public static void MapLocations(this RouteGroupBuilder app)
     {
-        app.MapPost("/", async (ApplicationDbContext dbContext, Location location) =>
+        app.MapPost("/", async (ApplicationDbContext dbContext, LocationEntity location) =>
         {
             dbContext.Locations.Add(location);
             await dbContext.SaveChangesAsync();
@@ -24,14 +24,15 @@ public static class LocationsEndpoint
             var location = await dbContext.Locations.FindAsync(locationId);
             return location == null ? Results.NotFound() : Results.Ok(location);
         });
-        app.MapPut("/{locationId}", async (ApplicationDbContext dbContext, int locationId, Location newLocation) =>
-        {
-            var location = await dbContext.Locations.FindAsync(locationId);
-            if (location == null) return Results.NotFound();
-            location.Region = newLocation.Region;
-            await dbContext.SaveChangesAsync();
-            return Results.Ok();
-        });
+        app.MapPut("/{locationId}",
+            async (ApplicationDbContext dbContext, int locationId, LocationEntity newLocation) =>
+            {
+                var location = await dbContext.Locations.FindAsync(locationId);
+                if (location == null) return Results.NotFound();
+                location.Location = newLocation.Location;
+                await dbContext.SaveChangesAsync();
+                return Results.Ok();
+            });
         app.MapDelete("/{locationId}", async (ApplicationDbContext dbContext, int locationId) =>
         {
             var location = await dbContext.Locations.FindAsync(locationId);
