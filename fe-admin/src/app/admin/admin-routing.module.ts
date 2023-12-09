@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatComponent } from './chat/chat.component';
 import { AppealsTableComponent } from './appeals-table/appeals-table.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { DashComponent } from './dash/dash.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    component: DashComponent,
     canActivate: [AuthGuard],
   },
   {
