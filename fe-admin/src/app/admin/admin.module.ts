@@ -15,9 +15,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [AdminRootComponent, DashboardComponent, ChatComponent, AppealsTableComponent, UsersTableComponent],
+  declarations: [
+    AdminRootComponent,
+    DashboardComponent,
+    ChatComponent,
+    AppealsTableComponent,
+    UsersTableComponent,
+  ],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -28,11 +35,10 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
+    MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
-  exports:[
-    AdminRootComponent
-  ]
+  exports: [AdminRootComponent],
 })
 export class AdminModule {}

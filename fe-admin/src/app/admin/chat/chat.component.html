@@ -1,52 +1,30 @@
-<mat-card class="example-card appeals">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Михайло Журавльов</mat-card-title>
-      <mat-card-subtitle>331654654</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-    Необхідно знайти роботу
-  <mat-card-content>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="example-card appeals">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Михайло Журавльов</mat-card-title>
-      <mat-card-subtitle>331654654</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-    За фахом фронт-енд розробника
-  <mat-card-content>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="example-card appeals">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Михайло Журавльов</mat-card-title>
-      <mat-card-subtitle>331654654</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-    знаю ангуляр
-  <mat-card-content>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="example-card answer">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>AI BOT</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-    Чим зможемо тим поможемо. Чекайте відповіді на пошту.
-  <mat-card-content>
-  </mat-card-content>
-</mat-card>
-<mat-form-field>
-  <mat-label>Введіть повідомлення</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
-<button mat-fab color="" ><mat-icon>send</mat-icon></button>
+<div class="chat-wrapper">
+  <mat-card *ngFor="let message of messages" class="card card__appeals">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{message.userName}}({{message.govId ? message.govId :''}})</mat-card-title>
+        <mat-card-subtitle>{{message.date | date:'short'}}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{message.text}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card card__text-input">
+    <mat-card-header>
+      <mat-card-title>Введіть повідомлення</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <mat-label></mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
+      </mat-form-field>
+      <button mat-fab matTooltip="Primary" color="primary">
+        <mat-icon>send</mat-icon>
+      </button>
+      <button mat-fab matTooltip="Primary" color="primary">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
