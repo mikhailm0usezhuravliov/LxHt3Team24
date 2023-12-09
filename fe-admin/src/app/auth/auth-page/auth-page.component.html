@@ -1,12 +1,12 @@
 <mat-card class="form-card">
   <!-- <mat-card-title class="form-card-title">Login</mat-card-title> -->
-  <mat-card-content class="form-card-content">
+  <mat-card-content class="form-card-content" [ngClass]="{shaking : loginError}">
     <form [formGroup]="form" (ngSubmit)="login(form)" autocomplete="off" class="login-form">
 
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Email:</mat-label>
-          <input matInput type="text" formControlName="email" placeholder="Your email">
+          <input matInput type="text" formControlName="email" placeholder="admin@admin.com">
           <mat-error *ngIf="form.controls['email'].errors?.['required']">Login is required</mat-error>
           <mat-error *ngIf="form.controls['email'].errors?.['pattern']">
             Please enter a valid email address
@@ -17,7 +17,7 @@
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Password </mat-label>
-          <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password"
+          <input matInput [type]="flag ? 'password' : 'text'" placeholder="admin1"
             formControlName="password">
           <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
           <mat-error *ngIf="form.controls['password'].errors?.['minlength']">

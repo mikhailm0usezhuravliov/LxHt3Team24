@@ -48,7 +48,11 @@ export class AuthPageComponent implements OnInit {
     if (login) {
       this._route.navigate(['admin']);
     } else {
-      this.loginError = true
+      this.loginError = true;
+      setTimeout(() => {
+        this.loginError = false;
+      },
+      300);
     }
   }
 }

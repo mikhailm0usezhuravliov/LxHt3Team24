@@ -1,0 +1,43 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Зведення</h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <app-card title="Кількість відкритих звернень"><div class="card-content "><mat-icon  aria-hidden="false" aria-label="" style="color: red">local_fire_department</mat-icon>150</div></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <app-card title="Середній час вирішення звернення:"><div class="card-content"><mat-icon  aria-hidden="false" aria-label="" style="color: blue">timer</mat-icon>22хв.</div></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <app-card title="Унікальних користувачів:"><div class="card-content"><mat-icon  aria-hidden="false" aria-label="" style="color: green">person</mat-icon>67845</div></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <app-card title="Вього звернень виконано:"><div class="card-content"><mat-icon  aria-hidden="false" aria-label="" style="color: aqua">task</mat-icon>89010\92133</div></app-card>
+    </mat-grid-tile>
+    <!--Charts-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows">
+      <app-card title=""><app-multi-series-chart/></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows">
+      <app-card title=""><app-stacked-column-chart/></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows">
+      <app-card title=""><app-circle-chart/></app-card>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile *ngFor="let i of [7, 8]" [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows">
+      <app-card title="Card {{i}}"><div>Chart Content Here</div></app-card>
+    </mat-grid-tile> -->
+    <!--Table-->
+    <!-- <mat-grid-tile [colspan]="( cardLayout | async )?.table?.cols" [rowspan]="( cardLayout | async )?.table?.rows">
+      <app-card title="Card 9"><div>Table Content Here</div></app-card>
+    </mat-grid-tile> -->
+  </mat-grid-list>
+ </div>
